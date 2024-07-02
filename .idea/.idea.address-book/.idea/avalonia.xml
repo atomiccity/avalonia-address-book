@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AddressBook/AddressBook/Views/MainView.axaml" value="AddressBook/AddressBook.Browser/AddressBook.Browser.csproj" />
+        <entry key="AddressBook/AddressBook/Views/MainWindow.axaml" value="AddressBook/AddressBook.Browser/AddressBook.Browser.csproj" />
       </map>
     </option>
   </component>
