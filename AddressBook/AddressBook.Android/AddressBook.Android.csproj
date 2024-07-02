@@ -4,14 +4,17 @@
         <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
-        <ApplicationId>com.CompanyName.AddressBook</ApplicationId>
-        <ApplicationVersion>1</ApplicationVersion>
-        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+        <ApplicationId>city.atomic.AvaloniaAddressBook</ApplicationId>
+        <ApplicationVersion>2</ApplicationVersion>
+        <ApplicationDisplayVersion>0.2</ApplicationDisplayVersion>
         <AndroidPackageFormat>apk</AndroidPackageFormat>
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+        <Company>Atomic City, LLC</Company>
+        <Product>Avalonia Address Book Demo</Product>
+        <AssemblyVersion>0.2</AssemblyVersion>
+        <FileVersion>0.2</FileVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86_64</AndroidSupportedAbis>
       <AndroidPackageFormat>aab</AndroidPackageFormat>
       <AndroidLinkTool>r8</AndroidLinkTool>
       <AndroidKeyStore>true</AndroidKeyStore>
@@ -20,12 +23,6 @@
       <AndroidSigningKeyPass>file:android-release.password</AndroidSigningKeyPass>
       <AndroidSigningKeyStore>android-release.keystore</AndroidSigningKeyStore>
     </PropertyGroup>
-
-    <ItemGroup>
-        <AndroidResource Include="Icon.png">
-            <Link>Resources\drawable\Icon.png</Link>
-        </AndroidResource>
-    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)"/>
