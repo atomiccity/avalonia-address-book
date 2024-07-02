@@ -10,6 +10,16 @@
         <AndroidPackageFormat>apk</AndroidPackageFormat>
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86_64</AndroidSupportedAbis>
+      <AndroidPackageFormat>aab</AndroidPackageFormat>
+      <AndroidLinkTool>r8</AndroidLinkTool>
+      <AndroidKeyStore>true</AndroidKeyStore>
+      <AndroidSigningStorePass>file:android-release.password</AndroidSigningStorePass>
+      <AndroidSigningKeyAlias>acrelease</AndroidSigningKeyAlias>
+      <AndroidSigningKeyPass>file:android-release.password</AndroidSigningKeyPass>
+      <AndroidSigningKeyStore>android-release.keystore</AndroidSigningKeyStore>
+    </PropertyGroup>
 
     <ItemGroup>
         <AndroidResource Include="Icon.png">
