@@ -3,6 +3,10 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="AddressBook/AddressBook/App.axaml" value="AddressBook/AddressBook.Browser/AddressBook.Browser.csproj" />
+        <entry key="AddressBook/AddressBook/Views/ContactDetailsView.axaml" value="AddressBook/AddressBook.Desktop/AddressBook.Desktop.csproj" />
+        <entry key="AddressBook/AddressBook/Views/ContactListView.axaml" value="AddressBook/AddressBook.Desktop/AddressBook.Desktop.csproj" />
+        <entry key="AddressBook/AddressBook/Views/ContactView.axaml" value="AddressBook/AddressBook.Desktop/AddressBook.Desktop.csproj" />
         <entry key="AddressBook/AddressBook/Views/MainView.axaml" value="AddressBook/AddressBook.Browser/AddressBook.Browser.csproj" />
         <entry key="AddressBook/AddressBook/Views/MainWindow.axaml" value="AddressBook/AddressBook.Browser/AddressBook.Browser.csproj" />
       </map>
