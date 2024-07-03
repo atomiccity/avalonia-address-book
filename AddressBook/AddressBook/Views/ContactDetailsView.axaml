@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AddressBook.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AddressBook.Views.ContactDetailsView"
+             x:DataType="vm:ContactDetailsViewModel">
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Left" Content="Delete" Command="{Binding DeleteCommand}" Background="Red" Margin="10"/>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Edit" Command="{Binding EditCommand}" Margin="10"/>
+                <Button Content="Back" Command="{Binding CancelCommand}" Margin="10"/>
+            </StackPanel>
+        </DockPanel>
+
+        <StackPanel Orientation="Vertical">
+           <Label Content="{Binding Contact.Name}" FontSize="22"/>
+           <Label Content="{Binding Contact.PhoneNumber}" FontSize="22"/>
+           <Label Content="{Binding Contact.EmailAddress}" FontSize="22"/>
+           <Label Content="{Binding Contact.Twitter}" FontSize="22"/>
+           <Label Content="{Binding Contact.Instagram}" FontSize="22"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

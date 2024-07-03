@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Interactivity="using:Avalonia.Xaml.Interactivity"
+             xmlns:Interactions="using:Avalonia.Xaml.Interactions.Core"
+             xmlns:vm="clr-namespace:AddressBook.ViewModels"
+             xmlns:models="clr-namespace:AddressBook.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AddressBook.Views.ContactListView"
+             x:DataType="vm:ContactListViewModel">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:ContactListViewModel />
+    </Design.DataContext>
+    
+    <Interactivity:Interaction.Behaviors>
+        <Interactions:EventTriggerBehavior EventName="Loaded">
+            <Interactions:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </Interactions:EventTriggerBehavior>
+    </Interactivity:Interaction.Behaviors>
+    
+    <Grid RowDefinitions="*, Auto">
+        <ScrollViewer Grid.Row="0">
+            <ListBox ItemsSource="{Binding Contacts}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models:Contact">
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Content="Details" IsVisible="{Binding $parent[ListBoxItem].IsSelected}" 
+                                    Command="{Binding $parent[ListBox].((vm:ContactListViewModel)DataContext).EditContactCommand}" 
+                                    CommandParameter="{Binding $parent[ListBox].SelectedItem}"/>
+                            <Label DockPanel.Dock="Left" Content="{Binding Name}" FontSize="22" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Margin="10" Content="Add" Command="{Binding AddContactCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

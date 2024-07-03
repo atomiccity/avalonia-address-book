@@ -1,8 +1,23 @@
-﻿namespace AddressBook.ViewModels;
+﻿using System.Collections.ObjectModel;
+using AddressBook.Models;
+using Avalonia.SimpleRouter;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-public class MainViewModel : ViewModelBase
+namespace AddressBook.ViewModels;
+
+public partial class MainViewModel : ViewModelBase
 {
-#pragma warning disable CA1822 // Mark members as static
-    public string Greeting => "Welcome to Avalonia!";
-#pragma warning restore CA1822 // Mark members as static
+    [ObservableProperty]
+    private ViewModelBase _content = default!;
+
+    public MainViewModel(HistoryRouter<ViewModelBase> router)
+    {
+        // register route changed event to set content to viewModel, whenever 
+        // a route changes
+        router.CurrentViewModelChanged += viewModel => Content = viewModel;
+        
+        // change to HomeView 
+        router.GoTo<ContactListViewModel>();
+    }
 }

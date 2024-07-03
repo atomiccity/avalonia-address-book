@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AddressBook.ViewModels"
+             xmlns:Interactivity="using:Avalonia.Xaml.Interactivity"
+             xmlns:Interactions="using:Avalonia.Xaml.Interactions.Core"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AddressBook.Views.ContactView"
+             x:DataType="vm:ContactViewModel">
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Left" Content="Delete" Command="{Binding DeleteCommand}" Background="Red" Margin="10"/>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Save" Command="{Binding SaveCommand}" Margin="10"/>
+                <Button Content="Cancel" Command="{Binding CancelCommand}" Margin="10"/>
+            </StackPanel>
+        </DockPanel>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+            <Label Grid.Row="0" Grid.Column="0" Content="Name" Margin="10" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Contact.Name}" Margin="10">
+                <Interactivity:Interaction.Behaviors>
+                    <Interactions:EventTriggerBehavior EventName="TextChanged">
+                        <Interactions:InvokeCommandAction Command="{Binding CanExecuteChangedCommand}" />
+                    </Interactions:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </TextBox>
+            
+            <Label Grid.Row="1" Grid.Column="0" Content="Phone" Margin="10" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Contact.PhoneNumber}" Margin="10"/>
+            
+            <Label Grid.Row="2" Grid.Column="0" Content="Email" Margin="10" />
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Contact.EmailAddress}" Margin="10" />
+            
+            <Label Grid.Row="3" Grid.Column="0" Content="Twitter" Margin="10" />
+            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Contact.Twitter}" Margin="10" />
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Instagram" Margin="10" />
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Contact.Instagram}" Margin="10" />
+        </Grid>
+    </DockPanel>
+</UserControl>
