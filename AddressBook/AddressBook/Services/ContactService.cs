@@ -10,7 +10,7 @@ namespace AddressBook.Services;
 public class ContactService
 {
     private static readonly string DatabasePath =
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AddressBook.db");
+        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "AddressBook.db");
 
     private readonly SQLiteAsyncConnection _db = new SQLiteAsyncConnection(DatabasePath);
 
