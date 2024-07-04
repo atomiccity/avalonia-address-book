@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="https://github.com/projektanker/icons.avalonia"
              xmlns:vm="clr-namespace:AddressBook.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="AddressBook.Views.ContactDetailsView"
@@ -15,12 +16,27 @@
             </StackPanel>
         </DockPanel>
 
-        <StackPanel Orientation="Vertical">
-           <Label Content="{Binding Contact.Name}" FontSize="22"/>
-           <Label Content="{Binding Contact.PhoneNumber}" FontSize="22"/>
-           <Label Content="{Binding Contact.EmailAddress}" FontSize="22"/>
-           <Label Content="{Binding Contact.Twitter}" FontSize="22"/>
-           <Label Content="{Binding Contact.Instagram}" FontSize="22"/>
+        <StackPanel Orientation="Vertical" Spacing="10">
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <i:Icon Value="fa-light fa-signature" FontSize="22"/>
+                <Label Content="{Binding Contact.Name}" FontSize="22"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding Contact.PhoneNumber, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                <i:Icon Value="fa-light fa-phone" FontSize="22"/>
+                <Label Content="{Binding Contact.PhoneNumber}" FontSize="22"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding Contact.EmailAddress, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                <i:Icon Value="fa-light fa-at" FontSize="22"/>
+                <Label Content="{Binding Contact.EmailAddress}" FontSize="22"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding Contact.Twitter, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                <i:Icon Value="fa-light fa-x-twitter" FontSize="22"/>
+                <Label Content="{Binding Contact.Twitter}" FontSize="22"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="10" IsVisible="{Binding Contact.Instagram, Converter={x:Static StringConverters.IsNotNullOrEmpty}}">
+                <i:Icon Value="fa-light fa-instagram" FontSize="22"/>
+                <Label Content="{Binding Contact.Instagram}" FontSize="22"/>
+            </StackPanel>
         </StackPanel>
     </DockPanel>
 </UserControl>

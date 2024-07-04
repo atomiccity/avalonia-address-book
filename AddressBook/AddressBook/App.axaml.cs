@@ -7,6 +7,8 @@ using AddressBook.ViewModels;
 using AddressBook.Views;
 using Avalonia.SimpleRouter;
 using Microsoft.Extensions.DependencyInjection;
+using Projektanker.Icons.Avalonia;
+using Projektanker.Icons.Avalonia.FontAwesome;
 
 namespace AddressBook;
 
@@ -43,6 +45,9 @@ public partial class App : Application
     private static ServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
+        
+        IconProvider.Current
+            .Register<FontAwesomeIconProvider>();
         
         // Add the HistoryRouter as a service
         services.AddSingleton<HistoryRouter<ViewModelBase>>(s => new HistoryRouter<ViewModelBase>(t => (ViewModelBase)s.GetRequiredService(t)));
